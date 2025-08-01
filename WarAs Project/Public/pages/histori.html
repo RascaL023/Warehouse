@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WarAs - Histori</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+</head>
+<body id="histori" class="light">
+  <header class="light">
+    <h1>War<span>As</span></h1> 
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="inventori.html">Inventori</a>
+      <a href="transaksi.html">Transaksi</a>
+      <a href="#">Histori</a>
+      <div class="settings">
+          <span class="material-symbols-rounded">settings</span>
+          <p>Pengaturan</p>
+      </div>
+    </nav>
+    <span class="nav-tab">X</span>
+  </header>
+
+  <main>
+    <aside class="light container">
+      <!-- Filter -->
+      <h2>Filter Histori</h2>
+      <form id="filter-histori">
+        <label>
+          Tanggal:
+          <input type="date" name="tanggal" />
+        </label>
+        <label>
+          Jenis:
+          <select name="jenis">
+            <option value="semua">Semua</option>
+            <option value="masuk">Masuk</option>
+            <option value="keluar">Keluar</option>
+          </select>
+        </label>
+        <button type="submit">Terapkan Filter</button>
+      </form>
+    </aside>
+
+    <div class="container light">
+      <!-- Tabel Histori -->
+      <h2>Riwayat Transaksi</h2>
+      <table id="tabel-histori">
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Nama Barang</th>
+            <th>Jumlah</th>
+            <th>Jenis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Diisi via JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

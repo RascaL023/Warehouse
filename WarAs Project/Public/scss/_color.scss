@@ -1,0 +1,312 @@
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    from{ transform: rotate(0deg); }
+	to{ transform: rotate(360deg); }
+}
+
+@keyframes slideToRight{
+	from{ transform: translateX(-100%); opacity: 0; }
+	to{ transform: translateX(0); opacity: 1; }
+}
+@keyframes slideToLeft{
+	from{ transform: translateX(100%); opacity: 0; }
+	to{ transform: translateX(0); opacity: 1; }
+}
+@keyframes goToRight{
+	from{ transform: translateX(0); opacity: 1; }
+	to{ transform: translateX(100%); opacity: 0; }
+}
+@keyframes goToLeft{
+	from{ transform: translateX(0); opacity: 1; }
+	to{ transform: translateX(-100%); opacity: 0; }
+}
+
+$themes: (
+	light: (
+		bg: #f2f7fc,             // Biru sangat muda, nyaris putih
+		text: #1e2a36,
+		// text2: #333,         // Biru kehitaman untuk teks utama
+		header: #3e9efff6,         // Biru pastel untuk header
+		footer: #e2effa,         // Biru lebih terang, buat penyeimbang
+		accent: #4b9ce2,         // Biru utama, cocok untuk tombol utama
+		accent2: yellow,
+		accent3: #6db4ff,        // Biru langit muda, buat efek hover/badge
+		contrast: #c2d6eb,      // Biru keabu, sebagai garis/pemisah
+		card: #ffffff,           // Putih bersih untuk card
+		input: #edf3fa,           // Biru muda abu tipis, buat input
+		shadow: rgba(0, 0, 0, 0.137),
+		button: #0077aa,
+		button2: rgb(233, 14, 14)
+	),
+	dark: (
+		bg: #121212d2,
+		text: #ddd,
+		header: rgba(39, 39, 39, 0.514),
+		footer: rgba(39, 39, 39, 0.514),
+		accent: #66b2ff,
+		accent2: blueviolet,
+		card: #1a1a1a,
+		input: #222222,
+		shadow: rgba(255, 255, 255, 0.096),
+		button: #0077aa,
+		button2: rgb(233, 14, 14)
+	),
+	univers: (
+		black: black,
+		white: white
+	)
+);
+// $transparent: rgba(39, 39, 39, 0.404);
+
+@function getTheme($mode, $key) {
+	@return map-get(map-get($themes, $mode), $key);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    margin: -1.5em 0 0 -1.5em;
+    border: 0.4em solid rgba(0, 0, 0, 0.1);
+    border-top: 0.4em solid #2196f3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 20;
+    display: none;
+}
+
+body::after{
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #2195f309;
+    backdrop-filter: blur(2px);
+    display: none;
+    z-index: 19;
+}
+
+body.loading{
+    &::before, &::after{
+        display: block;
+    }
+}
+
+.light {
+	background-color: getTheme(light, bg);
+	header{
+		background-color: getTheme(light, header);
+    	border-bottom: 2px solid getTheme(light, text);
+		h1, a, span{
+			color: getTheme(light, text);
+			> span{
+				color: getTheme(light, accent2);
+			}
+		}a:not(.current):hover{
+			border-color: getTheme(light, text);
+			box-shadow: 0 0 0.2em 0.1em getTheme(light, text);
+			scale: 1.05;
+		}
+		a::after{
+      		background-color: getTheme(light, text);
+		}
+		nav > span:hover{
+			background-color: rgba(255, 255, 255, 0.452);
+		}
+	}
+	.container{
+		background-color: getTheme(light, card);
+		border-color: getTheme(light, accent3) !important;
+	}
+	p{
+		color: getTheme(light, text);
+	}
+
+	#main-transaksi{
+		background: linear-gradient(135deg, #dfefff, #a5d8e7);
+		section{
+			box-shadow: 0 8px 20px getTheme(light, shadow);
+			form{
+				input:focus, select:focus {
+                    box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+                    background-color: #f0f8ff;
+                }
+				.form-filter{
+					&:after{
+						background-color: getTheme(univers, black);
+					}
+					.filter input, select{
+						background-color: getTheme(light, button);
+						color: getTheme(univers, white);
+					}
+					select:hover, input:hover{
+						color: getTheme(light, button);
+						border: 1px getTheme(light, button) solid;
+					}
+				}
+			}
+		}
+		.form-transaksi div .btns{
+			button{
+				background-color: getTheme(light, button);
+				color: getTheme(univers, white);
+			}button:first-child{
+				background-color: getTheme(light, button2);
+                margin-right: 3%;
+			}
+			button:first-child:hover{
+				color: getTheme(light, button2);
+				border: 1px getTheme(light, button2) solid;
+			}
+			button:hover{
+				border: 1px getTheme(light, button) solid;
+				color: getTheme(light, button);
+				background: none;
+			}
+		}
+	}
+
+	#log-reg-container{
+		.container{
+			box-shadow: 0 5px 15px getTheme(light, shadow);
+			.form-container{
+				form{
+					input{
+						background-color: #eee;
+					}
+					button{
+						color: getTheme(univers, white);
+						background-color: getTheme(light, button);
+						&:hover{
+							border-color: getTheme(light, button) !important;
+							color: getTheme(light, button);
+                            background-color: transparent;
+						}
+					}
+				}
+			}
+			.panel{
+				background-color: getTheme(light, accent3);
+				button{
+					border: 2px solid getTheme(univers, white);
+					color: #eee;
+				}
+			}
+		}
+	}
+
+}
+
+.dark {
+	background-color: getTheme(dark, bg);
+	header{
+		background-color: getTheme(dark, header);
+    	border-bottom: 2px solid getTheme(dark, text);
+		h1, a, span{
+			color: getTheme(dark, text);
+			> span{
+				color: getTheme(dark, accent2);
+			}
+		}a:not(.current):hover{
+			border-color: getTheme(dark, text);
+			box-shadow: 0 0 0.2em 0.1em getTheme(dark, text);
+			scale: 1.05;
+		}
+		a::after{
+      		background-color: getTheme(dark, text);
+		}
+		nav > span:hover{
+			background-color: rgba(255, 255, 255, 0.452);
+		}
+	}
+	.container{
+		background-color: getTheme(dark, card);
+		border-color: getTheme(dark, accent3) !important;
+	}
+	p{
+		color: getTheme(dark, text);
+	}
+
+	#main-transaksi{
+		background: linear-gradient(135deg, #dfefff, #a5d8e7);
+		section{
+			box-shadow: 0 8px 20px getTheme(dark, shadow);
+			form{
+				input:focus, select:focus {
+                    box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+                    background-color: #f0f8ff;
+                }
+				.form-filter{
+					&:after{
+						background-color: getTheme(univers, black);
+					}
+					.filter input, select{
+						background-color: getTheme(dark, button);
+						color: getTheme(univers, white);
+					}
+					select:hover, input:hover{
+						color: getTheme(dark, button);
+						border: 1px getTheme(dark, button) solid;
+					}
+				}
+			}
+		}
+		.form-transaksi div .btns{
+			button{
+				background-color: getTheme(dark, button);
+				color: getTheme(univers, white);
+			}button:first-child{
+				background-color: getTheme(dark, button2);
+                margin-right: 3%;
+			}
+			button:first-child:hover{
+				color: getTheme(dark, button2);
+				border: 1px getTheme(dark, button2) solid;
+			}
+			button:hover{
+				border: 1px getTheme(dark, button) solid;
+				color: getTheme(dark, button);
+				background: none;
+			}
+		}
+	}
+
+	#log-reg-container{
+		.container{
+			box-shadow: 0 5px 15px getTheme(dark, shadow);
+			.form-container{
+				form{
+					input{
+						background-color: #eee;
+					}
+					button{
+						color: getTheme(univers, white);
+						background-color: getTheme(dark, button);
+						&:hover{
+							border-color: getTheme(dark, button) !important;
+							color: getTheme(dark, button);
+                            background-color: transparent;
+						}
+					}
+				}
+			}
+			.panel{
+				background-color: getTheme(dark, accent3);
+				button{
+					border: 2px solid getTheme(univers, white);
+					color: #eee;
+				}
+			}
+		}
+	}
+
+}

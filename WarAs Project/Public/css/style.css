@@ -1,0 +1,829 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slideToRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideToLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes goToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes goToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  margin: -1.5em 0 0 -1.5em;
+  border: 0.4em solid rgba(0, 0, 0, 0.1);
+  border-top: 0.4em solid #2196f3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 20;
+  display: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(33, 149, 243, 0.0352941176);
+  backdrop-filter: blur(2px);
+  display: none;
+  z-index: 19;
+}
+
+body.loading::before, body.loading::after {
+  display: block;
+}
+
+.light {
+  background-color: #f2f7fc;
+}
+.light header {
+  background-color: rgba(62, 158, 255, 0.9647058824);
+  border-bottom: 2px solid #1e2a36;
+}
+.light header h1, .light header a, .light header span {
+  color: #1e2a36;
+}
+.light header h1 > span, .light header a > span, .light header span > span {
+  color: yellow;
+}
+.light header a:not(.current):hover {
+  border-color: #1e2a36;
+  box-shadow: 0 0 0.2em 0.1em #1e2a36;
+  scale: 1.05;
+}
+.light header a::after {
+  background-color: #1e2a36;
+}
+.light header nav > span:hover {
+  background-color: rgba(255, 255, 255, 0.452);
+}
+.light .container {
+  background-color: #ffffff;
+  border-color: #6db4ff !important;
+}
+.light p {
+  color: #1e2a36;
+}
+.light #main-transaksi {
+  background: linear-gradient(135deg, #dfefff, #a5d8e7);
+}
+.light #main-transaksi section {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.137);
+}
+.light #main-transaksi section form input:focus, .light #main-transaksi section form select:focus {
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+  background-color: #f0f8ff;
+}
+.light #main-transaksi section form .form-filter:after {
+  background-color: black;
+}
+.light #main-transaksi section form .form-filter .filter input, .light #main-transaksi section form .form-filter select {
+  background-color: #0077aa;
+  color: white;
+}
+.light #main-transaksi section form .form-filter select:hover, .light #main-transaksi section form .form-filter input:hover {
+  color: #0077aa;
+  border: 1px #0077aa solid;
+}
+.light #main-transaksi .form-transaksi div .btns button {
+  background-color: #0077aa;
+  color: white;
+}
+.light #main-transaksi .form-transaksi div .btns button:first-child {
+  background-color: rgb(233, 14, 14);
+  margin-right: 3%;
+}
+.light #main-transaksi .form-transaksi div .btns button:first-child:hover {
+  color: rgb(233, 14, 14);
+  border: 1px rgb(233, 14, 14) solid;
+}
+.light #main-transaksi .form-transaksi div .btns button:hover {
+  border: 1px #0077aa solid;
+  color: #0077aa;
+  background: none;
+}
+.light #log-reg-container .container {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.137);
+}
+.light #log-reg-container .container .form-container form input {
+  background-color: #eee;
+}
+.light #log-reg-container .container .form-container form button {
+  color: white;
+  background-color: #0077aa;
+}
+.light #log-reg-container .container .form-container form button:hover {
+  border-color: #0077aa !important;
+  color: #0077aa;
+  background-color: transparent;
+}
+.light #log-reg-container .container .panel {
+  background-color: #6db4ff;
+}
+.light #log-reg-container .container .panel button {
+  border: 2px solid white;
+  color: #eee;
+}
+
+.dark {
+  background-color: rgba(18, 18, 18, 0.8235294118);
+}
+.dark header {
+  background-color: rgba(39, 39, 39, 0.514);
+  border-bottom: 2px solid #ddd;
+}
+.dark header h1, .dark header a, .dark header span {
+  color: #ddd;
+}
+.dark header h1 > span, .dark header a > span, .dark header span > span {
+  color: blueviolet;
+}
+.dark header a:not(.current):hover {
+  border-color: #ddd;
+  box-shadow: 0 0 0.2em 0.1em #ddd;
+  scale: 1.05;
+}
+.dark header a::after {
+  background-color: #ddd;
+}
+.dark header nav > span:hover {
+  background-color: rgba(255, 255, 255, 0.452);
+}
+.dark .container {
+  background-color: #1a1a1a;
+  border-color: !important;
+}
+.dark p {
+  color: #ddd;
+}
+.dark #main-transaksi {
+  background: linear-gradient(135deg, #dfefff, #a5d8e7);
+}
+.dark #main-transaksi section {
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.096);
+}
+.dark #main-transaksi section form input:focus, .dark #main-transaksi section form select:focus {
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+  background-color: #f0f8ff;
+}
+.dark #main-transaksi section form .form-filter:after {
+  background-color: black;
+}
+.dark #main-transaksi section form .form-filter .filter input, .dark #main-transaksi section form .form-filter select {
+  background-color: #0077aa;
+  color: white;
+}
+.dark #main-transaksi section form .form-filter select:hover, .dark #main-transaksi section form .form-filter input:hover {
+  color: #0077aa;
+  border: 1px #0077aa solid;
+}
+.dark #main-transaksi .form-transaksi div .btns button {
+  background-color: #0077aa;
+  color: white;
+}
+.dark #main-transaksi .form-transaksi div .btns button:first-child {
+  background-color: rgb(233, 14, 14);
+  margin-right: 3%;
+}
+.dark #main-transaksi .form-transaksi div .btns button:first-child:hover {
+  color: rgb(233, 14, 14);
+  border: 1px rgb(233, 14, 14) solid;
+}
+.dark #main-transaksi .form-transaksi div .btns button:hover {
+  border: 1px #0077aa solid;
+  color: #0077aa;
+  background: none;
+}
+.dark #log-reg-container .container {
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.096);
+}
+.dark #log-reg-container .container .form-container form input {
+  background-color: #eee;
+}
+.dark #log-reg-container .container .form-container form button {
+  color: white;
+  background-color: #0077aa;
+}
+.dark #log-reg-container .container .form-container form button:hover {
+  border-color: #0077aa !important;
+  color: #0077aa;
+  background-color: transparent;
+}
+.dark #log-reg-container .container .panel button {
+  border: 2px solid white;
+  color: #eee;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Montserrat;
+}
+
+input, button {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.current::after {
+  transition: ease-in-out 0.5s;
+  transform: scaleX(1);
+}
+
+.empty {
+  border-bottom-color: rgb(255, 0, 0) !important;
+}
+.empty::placeholder {
+  font-style: italic;
+  color: red;
+}
+
+.hideY {
+  transform-origin: center;
+  transform: scaleY(0);
+  pointer-events: none;
+}
+
+.ical {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+body .nav-mbl {
+  display: none;
+}
+body header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5vh 2%;
+  box-shadow: 0 0 0.5em;
+  z-index: 10;
+}
+body header h1 {
+  font-style: italic;
+}
+body header nav {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body header nav a {
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
+  transition: ease-in-out 0.3s;
+  border-radius: 3px;
+  position: relative;
+}
+body header nav a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: ease-in-out 0.3s;
+}
+body header nav a:not(.current):hover::after {
+  transform: scaleX(1);
+}
+body header nav .settings {
+  cursor: pointer;
+  transition: ease 0.3s;
+  padding: 3px;
+  border-radius: 50%;
+}
+body header nav .settings > p {
+  display: none;
+}
+body header > span:last-child {
+  display: none;
+}
+
+#index header {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+}
+#index .hero {
+  background-image: url(https://c1.wallpaperflare.com/path/277/87/600/night-light-hall-factory-5b2af76908d25d251e8750b3ef5003e2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+#index .hero::before {
+  background-color: rgba(14, 11, 11, 0.774);
+  backdrop-filter: blur(2px);
+  height: 100%;
+  z-index: 0;
+}
+#index .hero::after {
+  height: 10%;
+  background: linear-gradient(0deg, rgba(36, 31, 31, 0.836) 0%, rgba(0, 0, 0, 0.123) 100%);
+  bottom: 0;
+}
+#index .hero::after, #index .hero::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+}
+
+#transaksi header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+#transaksi main {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#transaksi main section {
+  width: 80%;
+  margin-top: 10vh;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease;
+  padding: 1.5% 2%;
+  border-radius: 15px;
+}
+#transaksi main section form {
+  height: 100%;
+}
+#transaksi main section form input:focus, #transaksi main section form select:focus {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 0.5s ease;
+  scale: 1.01;
+}
+#transaksi main section form .form-filter {
+  position: relative;
+  padding: 1% 2%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#transaksi main section form .form-filter:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(1);
+}
+#transaksi main section form .form-filter .filter {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+}
+#transaksi main section form .form-filter .filter div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+#transaksi main section form .form-filter .filter input, #transaksi main section form .form-filter .filter select {
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  margin-left: 1vh;
+  padding: 5%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: 1px solid transparent;
+  outline: none;
+}
+#transaksi main section form .form-filter .filter select:hover, #transaksi main section form .form-filter .filter input:hover {
+  background: none;
+}
+#transaksi main section form .form-transaksi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#transaksi main section form .form-transaksi > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  height: 100%;
+}
+#transaksi main section form .form-transaksi > div input {
+  padding-bottom: 1%;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  font-size: 1.1rem;
+  margin-bottom: 3vh;
+}
+#transaksi main section form .form-transaksi > div .detail-barang, #transaksi main section form .form-transaksi > div .detail-harga {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: inherit;
+  width: 100%;
+}
+#transaksi main section form .form-transaksi > div .detail-barang input, #transaksi main section form .form-transaksi > div .detail-harga input {
+  width: 45%;
+}
+#transaksi main section form .form-transaksi > div .detail-barang {
+  margin-top: 5vh;
+}
+#transaksi main section form .form-transaksi > div .detail-keterangan {
+  width: 100%;
+  margin-top: 5vh;
+}
+#transaksi main section form .form-transaksi > div .detail-keterangan input {
+  width: 100%;
+}
+#transaksi main section form .form-transaksi > div .btns {
+  text-align: right;
+  width: 100%;
+}
+#transaksi main section form .form-transaksi > div .btns button {
+  padding: 1.5% 2%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+
+#inventori main {
+  padding: 1%;
+  margin-top: 5vh;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 12% auto;
+  gap: 0 1%;
+}
+#inventori main aside .contents {
+  padding: 1% 6%;
+}
+#inventori main aside .contents h2 {
+  margin-top: 5%;
+}
+#inventori main aside .contents ul {
+  list-style: none;
+}
+#inventori main aside .contents ul li {
+  position: relative;
+  background-color: rgba(156, 195, 255, 0.39);
+  padding: 10px 1em;
+  margin-top: 1em;
+  text-indent: 1%;
+  transition: ease 0.3s;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#inventori main aside .contents ul li::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 3%;
+  background-color: rgba(0, 0, 0, 0.719);
+  left: 0;
+  top: 0;
+}
+#inventori main aside .contents ul li:hover {
+  background-color: rgba(125, 177, 255, 0.76);
+  cursor: pointer;
+  scale: 1.05;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.568);
+}
+#inventori main aside .contents ul li:hover::before {
+  background-color: rgb(0, 0, 0);
+}
+#inventori main .container {
+  animation: fadeInUp 0.8s ease;
+  border-top: 10px solid;
+  box-shadow: 3px 3px 10px black;
+  border-radius: 5px;
+}
+#inventori main .container form {
+  padding: 0.5rem;
+}
+#inventori main .container form > h1 {
+  text-align: center;
+}
+#inventori main .container form .search-input {
+  margin: 3vh auto;
+  width: 40vh;
+  position: relative;
+  transition: ease 0.3s;
+}
+#inventori main .container form .search-input input {
+  transition: scale 0.5s linear;
+  background-color: rgba(219, 214, 205, 0.753);
+  width: 100%;
+  outline: unset;
+}
+#inventori main .container form .search-input input, #inventori main .container form .search-input button {
+  border: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+}
+#inventori main .container form .search-input button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  position: absolute;
+  right: 0;
+  background-color: gray;
+  z-index: 1;
+  font-weight: bold;
+}
+#inventori main .container form .search-input:hover {
+  scale: 1.1;
+}
+#inventori main .container hr {
+  width: 60%;
+  margin: 1vh auto;
+  border-radius: 50%;
+}
+#inventori main .container #resContainer table {
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 2em black;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: center;
+  width: 80%;
+  border-radius: 5px;
+  overflow: scroll;
+}
+#inventori main .container #resContainer table th {
+  padding: 10px;
+}
+#inventori main .container #resContainer table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+#inventori main .container #resContainer table tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease;
+}
+#inventori main .container #resContainer table td {
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+}
+
+#log-reg header {
+  position: fixed;
+  width: 100%;
+}
+#log-reg #log-reg-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#log-reg #log-reg-container .container {
+  animation: fadeInUp 0.9s;
+  border-radius: 55px;
+  height: 70%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#log-reg #log-reg-container .container .form-container:first-child {
+  border-radius: 20px 0 0 20px;
+}
+#log-reg #log-reg-container .container .form-container {
+  border-radius: 0 20px 20px 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#log-reg #log-reg-container .container .form-container form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+#log-reg #log-reg-container .container .form-container form h1 {
+  margin-bottom: 3vh;
+}
+#log-reg #log-reg-container .container .form-container form input {
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  width: 100%;
+}
+#log-reg #log-reg-container .container .form-container form button {
+  font-weight: bold;
+  margin-top: 3vh;
+  padding: 8px 20px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+#log-reg #log-reg-container .container .form-container #daftar {
+  animation: goToRight 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #log {
+  animation: goToLeft 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #daftar.act {
+  animation: slideToLeft 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #log.act {
+  animation: slideToRight 0.9s;
+}
+#log-reg #log-reg-container .container .panel {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateX(0);
+  border-radius: 150px 10% 10% 150px;
+  transition: all 0.9s ease-in-out;
+}
+#log-reg #log-reg-container .container .panel > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.8s ease-in-out;
+  gap: 1vh 0;
+  position: absolute;
+  text-align: center;
+}
+#log-reg #log-reg-container .container .panel > div p {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+#log-reg #log-reg-container .container .panel.act {
+  transform: translateX(-100%);
+  border-radius: 10% 150px 150px 10%;
+}
+#log-reg #log-reg-container .container .panel.act div:first-child {
+  opacity: 0;
+}
+#log-reg #log-reg-container .container .panel.act div:nth-child(2) {
+  opacity: 1;
+}
+#log-reg #log-reg-container .container .panel button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 1vh;
+  cursor: pointer;
+  font-weight: bold;
+}
+#log-reg #log-reg-container .container .panel div:nth-child(2) {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 70%;
+  }
+  body header nav {
+    position: fixed;
+    justify-content: unset;
+    width: 50%;
+    height: 100%;
+    right: -100%;
+    top: 0;
+    background-color: aliceblue;
+    flex-direction: column;
+    transition: ease 0.4s;
+    z-index: 10;
+  }
+  body header nav a {
+    padding: 1em 0.5em;
+    width: 100%;
+  }
+  body header nav a:not(.current):hover {
+    scale: 1 !important;
+  }
+  body header nav .settings {
+    display: flex;
+    align-items: center;
+    gap: 0 1em;
+    border-radius: 0;
+    padding: 1em 0.5em;
+    width: 100%;
+    position: relative;
+  }
+  body header nav .settings::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #1e2a36;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: ease-in-out 0.3s;
+  }
+  body header nav .settings:hover::after {
+    transform: scaleX(1);
+    box-shadow: 0 0 0.2em 0.1em #1e2a36;
+  }
+  body header nav .settings p {
+    font-size: 1.5em;
+    display: inline;
+  }
+  body header nav.active {
+    right: 0;
+  }
+  body header > span:last-child {
+    display: block;
+    position: absolute;
+    right: 3%;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 55%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

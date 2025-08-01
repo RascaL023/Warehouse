@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarAs - Inventori</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body id="inventori" class="light">
+    <header class="light">
+        <h1>War<span>As</span></h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#">Inventori</a>
+            <a href="transaksi.html">Transaksi</a>
+            <a href="histori.html">Histori</a>
+            <div class="settings">
+                <span class="material-symbols-rounded">settings</span>
+                <p>Pengaturan</p>
+            </div>
+        </nav>
+        <span class="nav-tab">X</span>
+    </header>
+
+    <main>
+        <aside class="light container">
+            <div class="contents">
+                <h2>Navbar</h2> 
+                <ul>
+                    <li>Cari barang</li>
+                    <li>Sortir harga</li>
+                    <li>Sortir tanggal</li>
+                    <li>Edit</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="container light">
+            <!-- Search -->
+            <form id="search">
+                <h1>Inventori barang</h1>
+                <div class="search-input hideY">
+                    <input type="text" placeholder="Cari disini"><button>Search</button>
+                </div>
+                <hr>
+            </form>
+    
+            <!-- Result From JS -->
+            <div id="res-container" class="container"></div>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

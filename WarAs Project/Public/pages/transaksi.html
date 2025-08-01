@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WarAs - Transaksi</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet"/>
+</head>
+<body id="transaksi" class="light">
+  <header class="light">
+    <h1>War<span>As</span></h1> 
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="inventori.html">Inventori</a>
+      <a href="#">Transaksi</a>
+      <a href="histori.html">Histori</a>
+      <div class="settings">
+          <span class="material-symbols-rounded">settings</span>
+          <p>Pengaturan</p>
+      </div>
+    </nav>
+    <span class="nav-tab">X</span>
+  </header>
+
+  <main id="main-transaksi">
+    <section class="container">
+      <form id="transaksi-form" class="container light">
+        <div class="form-filter">
+          <h1>Form Transaksi</h1>
+          <div class="filter">
+            <div>
+              <p>Jenis</p>
+              <select name="jenis">
+                <option value="pemasukan">Barang Masuk</option>
+                <option value="pengeluaran">Barang Keluar</option>
+              </select>
+            </div>
+            <div>
+              <p>Tanggal</p>
+              <input type="date" name="tanggal"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-transaksi">
+          <div>
+            <div class="detail-barang">
+              <input type="text" name="id-barang" placeholder="ID barang"/>
+              <input type="text" name="nama-barang" placeholder="Nama barang"/>
+              <input type="number" name="jumlah" placeholder="Jumlah barang"/>
+              <input type="text" name="satuan" placeholder="Satuan"/>
+            </div>
+            <div class="detail-harga">
+              <input type="number" name="harga-satuan" placeholder="Harga satuan"/>
+              <input type="number" name="total-harga" placeholder="Total"/>
+            </div>
+            <div class="detail-keterangan">
+              <input type="text" name="nama-supplier" placeholder="Nama Supplier"/>
+              <input type="text" name="keterangan" placeholder="Keterangan"/>
+            </div>
+            <div class="btns">
+              <button type="reset" class="button">Reset</button>
+              <button class="button">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
