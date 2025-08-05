@@ -1,0 +1,1626 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Yellowtail&display=swap");
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes terDup {
+  from {
+    text-shadow: none;
+  }
+  to {
+    text-shadow: 0 0 10px getTheme(dark, accent4);
+  }
+}
+@keyframes slideToRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideToLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes goToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes goToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  margin: -1.5em 0 0 -1.5em;
+  border: 0.4em solid rgba(0, 0, 0, 0.1);
+  border-top: 0.4em solid #2196f3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 20;
+  display: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(33, 149, 243, 0.0352941176);
+  backdrop-filter: blur(2px);
+  display: none;
+  z-index: 19;
+}
+
+body.loading::before, body.loading::after {
+  display: block;
+}
+
+.light {
+  transition: background 0.3s ease-in-out;
+  background-color: #f2f7fc;
+}
+.light header {
+  background-color: rgba(62, 158, 255, 0.9647058824);
+  border-bottom: 2px solid #1e2a36;
+}
+.light header h1, .light header a, .light header span {
+  color: #1e2a36;
+}
+.light header h1 > span, .light header a > span, .light header span > span {
+  color: yellow;
+}
+.light header nav > a:not(.current):hover {
+  border-color: #1e2a36;
+  box-shadow: 0 0 0.2em 0.1em #1e2a36;
+  scale: 1.05;
+}
+.light header nav > a::after {
+  background-color: #1e2a36;
+}
+.light header nav span:hover {
+  background-color: rgba(255, 255, 255, 0.452);
+}
+.light .container {
+  background-color: #ffffff;
+  border-color: #6db4ff !important;
+}
+.light p {
+  color: #1e2a36;
+}
+.light#transaksi {
+  background: linear-gradient(135deg, #dfefff, #a5d8e7);
+}
+.light#transaksi #main-transaksi section {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.137);
+}
+.light#transaksi #main-transaksi section form input, .light#transaksi #main-transaksi section form select {
+  border: 1px solid #c2d6eb;
+}
+.light#transaksi #main-transaksi section form input:focus, .light#transaksi #main-transaksi section form select:focus {
+  border-color: #4b9ce2;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+  background-color: #f0f8ff;
+}
+.light#transaksi #main-transaksi section form .form-filter:after {
+  background-color: black;
+}
+.light#transaksi #main-transaksi section form .form-filter .filter input, .light#transaksi #main-transaksi section form .form-filter select {
+  background-color: #0077aa;
+  color: white;
+}
+.light#transaksi #main-transaksi section form .form-filter select:hover, .light#transaksi #main-transaksi section form .form-filter input:hover {
+  cursor: pointer;
+  background-color: unset;
+  color: #0077aa;
+  border: 1px #0077aa solid;
+}
+.light#transaksi #main-transaksi .form-transaksi div .btns button {
+  background-color: #0077aa;
+  color: white;
+  border: 1px solid transparent;
+}
+.light#transaksi #main-transaksi .form-transaksi div .btns button:hover {
+  border: 1px #0077aa solid;
+  color: #0077aa;
+  background: none;
+}
+.light#transaksi #main-transaksi .form-transaksi div .btns button:first-child {
+  background-color: rgb(233, 14, 14);
+}
+.light#transaksi #main-transaksi .form-transaksi div .btns button:first-child:first-child:hover {
+  color: rgb(233, 14, 14);
+  border: 1px rgb(233, 14, 14) solid;
+  background: none;
+}
+.light#transaksi #main-transaksi main section {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.137);
+}
+.light #log-reg-container .container {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.137);
+}
+.light #log-reg-container .container .form-container form input {
+  background-color: #eee;
+}
+.light #log-reg-container .container .form-container form button {
+  color: white;
+  background-color: #0077aa;
+}
+.light #log-reg-container .container .form-container form button:hover {
+  border-color: #0077aa !important;
+  color: #0077aa;
+  background-color: transparent;
+}
+.light #log-reg-container .container .panel {
+  background-color: #6db4ff;
+}
+.light #log-reg-container .container .panel button {
+  border: 2px solid white;
+  color: #eee;
+}
+.light#index .hero .content-container {
+  background-color: rgba(216, 216, 216, 0.13);
+  color: #f2f7fc;
+  box-shadow: 0 0 1em 5px rgba(255, 255, 255, 0.116);
+}
+.light#index .hero .content-container h1::after {
+  background-color: white;
+}
+.light#index .hero .content-container h1::before {
+  background-color: white;
+}
+.light#index .hero .content-container h1 span {
+  color: yellow;
+}
+.light#index .hero::before {
+  background-color: rgba(14, 11, 11, 0.61);
+}
+.light#index .hero::after {
+  background: linear-gradient(0deg, rgba(36, 31, 31, 0.836) 0%, rgba(0, 0, 0, 0.123) 100%);
+}
+.light#index main .intro {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.137);
+}
+.light#index main .intro .contents a {
+  background-color: #0077aa;
+  color: white;
+  border: 1px solid transparent;
+}
+.light#index main .intro .contents a:hover {
+  background-color: unset;
+  color: #0077aa;
+  border-color: #0077aa;
+}
+.light#index main section.container .fitur-container .fitur-card {
+  box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.137);
+}
+.light#inventori main aside .contents ul li, .light#inventori main aside .contents ul a {
+  font-weight: 600;
+  color: #1e2a36;
+  background-color: rgba(156, 195, 255, 0.39);
+}
+.light#inventori main aside .contents ul li::before {
+  background-color: rgba(0, 0, 0, 0.719);
+}
+.light#inventori main aside .contents ul li:hover {
+  background-color: rgba(125, 177, 255, 0.76);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.568);
+}
+.light#inventori main aside .contents ul li:hover::before {
+  background-color: rgb(0, 0, 0);
+}
+.light#inventori main .container {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.137);
+}
+.light#inventori main .container form .search-input input {
+  background-color: rgba(219, 214, 205, 0.753);
+  outline: unset;
+}
+.light#inventori main .container form .search-input button {
+  background-color: gray;
+}
+.light#inventori main .container #res-container div {
+  background-color: #ffffff;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.137);
+}
+.light#inventori main .container #res-container div#container-pemasukkan {
+  background-color: rgba(8, 136, 8, 0.452);
+}
+.light#inventori main .container #res-container div#container-pengeluaran {
+  background-color: rgba(124, 8, 8, 0.39);
+}
+.light#inventori main .container #res-container div table {
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.137);
+}
+.light#inventori main .container #res-container div table thead {
+  background-color: #1e2a36;
+  color: white;
+}
+.light#inventori main .container #res-container div table tbody tr {
+  transition: background 0.5s ease;
+}
+.light#inventori main .container #res-container div table tbody tr:nth-child(even) {
+  background-color: rgba(107, 107, 107, 0.397);
+}
+.light#inventori main .container #res-container div table tbody tr:hover {
+  background-color: rgba(110, 25, 25, 0.356);
+}
+.light#inventori main .container #res-container div table tbody tr td {
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+}
+.light#inventori table, .light#histori table, .light#dashboard table {
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.315);
+}
+.light#inventori table thead, .light#histori table thead, .light#dashboard table thead {
+  background-color: #1e2a36;
+  color: white;
+}
+.light#inventori table tbody tr:nth-child(even), .light#histori table tbody tr:nth-child(even), .light#dashboard table tbody tr:nth-child(even) {
+  background-color: rgba(107, 107, 107, 0.397);
+}
+.light#inventori table tbody tr:hover, .light#histori table tbody tr:hover, .light#dashboard table tbody tr:hover {
+  background-color: rgba(110, 25, 25, 0.356);
+}
+.light#inventori table tbody tr td, .light#histori table tbody tr td, .light#dashboard table tbody tr td {
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+.light#histori main .heading {
+  background-color: #ffffff;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.137);
+}
+.light#histori main #result table {
+  box-shadow: unset;
+}
+.light#histori #filter-container #filter-form input, .light#histori #filter-container #filter-form select, .light#histori #filter-container #filter-form button {
+  background-color: #0077aa;
+  color: white;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+.light#histori #filter-container #filter-form input:hover, .light#histori #filter-container #filter-form select:hover, .light#histori #filter-container #filter-form button:hover {
+  cursor: pointer;
+  background-color: unset;
+  color: #0077aa;
+  border-color: #0077aa;
+}
+.light#histori #filter-container .btn-container #filter-btn {
+  color: white;
+  background-color: rgba(39, 39, 39, 0.404);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.137);
+}
+.light#dashboard main .dashboard-container {
+  background-color: transparent;
+  margin-top: 1vw;
+}
+.light#dashboard main .dashboard-container .container-card .card {
+  padding: 3%;
+  transition: ease 0.3s;
+  overflow-y: scroll;
+  background-color: #6db4ff;
+}
+.light#dashboard main .dashboard-container .container-card .card:hover {
+  box-shadow: 0 0 10px;
+  scale: 1.1;
+  transform: translateY(-10px);
+}
+.light#dashboard main .dashboard-container > div, .light#dashboard main .dashboard-container .tot-container > div {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.137);
+  border-bottom: 5px solid;
+  padding: 4%;
+}
+.light#dashboard main .dashboard-container > div:first-child, .light#dashboard main .dashboard-container .tot-container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+.light#dashboard main .dashboard-container > div:first-child .usr-income, .light#dashboard main .dashboard-container .tot-container > div:first-child .usr-income {
+  transition: ease 0.5s;
+}
+.light#dashboard main .dashboard-container > div:first-child .usr-income h1, .light#dashboard main .dashboard-container .tot-container > div:first-child .usr-income h1 {
+  animation: terDup 1.5s infinite alternate;
+  color: #4b9ce2;
+}
+.light#dashboard main .tot-container > .tot {
+  background-color: #f2f7fc !important;
+  flex: 1;
+  font-size: clamp(8px, 1.1vw, 14px);
+  border-radius: 10px;
+  text-align: center;
+  border-bottom: none !important;
+}
+.light#dashboard main .tot-container > .tot h2 {
+  color: #111;
+}
+.light#dashboard main .tot-container > .tot p {
+  font-size: 1rem;
+}
+.light#dashboard main .barang #container-barang {
+  background-color: #f2f7fc;
+  padding: 3%;
+  border-radius: 10px;
+}
+.light#dashboard main .barang #container-barang > .card {
+  background-color: #ffffff;
+  transition: ease 0.2s;
+}
+.light#dashboard main .barang #container-barang > .card:hover {
+  box-shadow: 0 0 0.5em;
+  scale: 1.1;
+  transform: translateY(-10px);
+}
+
+.dark {
+  background-color: rgba(18, 18, 18, 0.8235294118);
+}
+.dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5 {
+  color: #ddd;
+}
+.dark header {
+  background-color: rgba(31, 31, 31, 0.9019607843);
+  border-bottom: 2px solid #ddd;
+}
+.dark header h1, .dark header a, .dark header span {
+  color: #ddd;
+}
+.dark header h1 > span, .dark header a > span, .dark header span > span {
+  color: #ffc400;
+}
+.dark header nav > a:not(.current):hover {
+  border-color: #ddd;
+  box-shadow: 0 0 0.2em 0.1em #ddd;
+  scale: 1.05;
+}
+.dark header nav > a::after {
+  background-color: #ddd;
+}
+.dark header nav span:first-child:hover {
+  background-color: rgba(255, 255, 255, 0.452);
+}
+.dark .container {
+  background-color: #1a1a1a;
+  border-color: #338bff !important;
+}
+.dark#transaksi {
+  background: linear-gradient(135deg, rgba(31, 31, 31, 0.9019607843), rgba(18, 18, 18, 0.8235294118));
+}
+.dark#transaksi #main-transaksi section {
+  box-shadow: 0 8px 20px rgba(26, 26, 26, 0.8);
+}
+.dark#transaksi #main-transaksi section form input, .dark#transaksi #main-transaksi section form select {
+  border: 1px solid #333c47;
+  color: #009be0;
+}
+.dark#transaksi #main-transaksi section form input::placeholder, .dark#transaksi #main-transaksi section form select::placeholder {
+  color: #eee;
+}
+.dark#transaksi #main-transaksi section form input:focus, .dark#transaksi #main-transaksi section form select:focus {
+  color: #ddd;
+  border-color: #66b2ff;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.4);
+  background-color: #222222;
+}
+.dark#transaksi #main-transaksi section form .form-filter:after {
+  background-color: black;
+}
+.dark#transaksi #main-transaksi section form .form-filter .filter input, .dark#transaksi #main-transaksi section form .form-filter select {
+  background-color: #009be0;
+  color: white;
+}
+.dark#transaksi #main-transaksi section form .form-filter select:hover, .dark#transaksi #main-transaksi section form .form-filter input:hover {
+  cursor: pointer;
+  background-color: unset;
+  color: #009be0;
+  border: 1px #009be0 solid;
+}
+.dark#transaksi #main-transaksi .form-transaksi div .btns button {
+  background-color: #009be0;
+  color: white;
+  border: 1px solid transparent;
+}
+.dark#transaksi #main-transaksi .form-transaksi div .btns button:hover {
+  border: 1px #009be0 solid;
+  color: #009be0;
+  background: none;
+}
+.dark#transaksi #main-transaksi .form-transaksi div .btns button:first-child {
+  background-color: rgb(233, 14, 14);
+}
+.dark#transaksi #main-transaksi .form-transaksi div .btns button:first-child:first-child:hover {
+  color: rgb(233, 14, 14);
+  border: 1px rgb(233, 14, 14) solid;
+  background: none;
+}
+.dark#transaksi #main-transaksi main section {
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.06);
+}
+.dark #log-reg-container .container .form-container form input {
+  background-color: #eee;
+}
+.dark #log-reg-container .container .form-container form button {
+  color: white;
+  border: 1px solid transparent;
+  background-color: #aa2cff;
+}
+.dark #log-reg-container .container .form-container form button:hover {
+  border-color: #aa2cff !important;
+  color: #aa2cff;
+  background-color: transparent;
+}
+.dark #log-reg-container .container .panel {
+  background-color: #aa2cff;
+}
+.dark #log-reg-container .container .panel button {
+  border: 2px solid white;
+  color: #eee;
+}
+.dark#index .hero .content-container {
+  background-color: rgba(216, 216, 216, 0.13);
+  color: rgba(18, 18, 18, 0.8235294118);
+  box-shadow: 0 0 1em 5px rgba(255, 255, 255, 0.116);
+}
+.dark#index .hero .content-container h1::after {
+  background-color: white;
+}
+.dark#index .hero .content-container h1::before {
+  background-color: white;
+}
+.dark#index .hero .content-container h1 span {
+  color: #ffc400;
+}
+.dark#index .hero::before {
+  background-color: rgba(14, 11, 11, 0.61);
+}
+.dark#index .hero::after {
+  background: linear-gradient(0deg, rgba(36, 31, 31, 0.836) 0%, rgba(0, 0, 0, 0.123) 100%);
+}
+.dark#index main .intro {
+  box-shadow: 0 0 1em rgba(31, 31, 31, 0.9019607843);
+}
+.dark#index main .intro .contents h2 {
+  color: #ffc400;
+}
+.dark#index main .intro .contents a {
+  background-color: #009be0;
+  color: white;
+  border: 1px solid transparent;
+}
+.dark#index main .intro .contents a:hover {
+  background-color: unset;
+  color: #009be0;
+  border-color: #009be0;
+}
+.dark#index main section.container .fitur-container .fitur-card {
+  box-shadow: 0 0 0.8em rgba(31, 31, 31, 0.9019607843);
+}
+.dark#inventori main aside .contents ul li, .dark#inventori main aside .contents ul a {
+  font-weight: 600;
+  color: rgb(211, 211, 211);
+  background-color: rgba(156, 195, 255, 0.39);
+}
+.dark#inventori main aside .contents ul li::before {
+  background-color: rgba(0, 255, 213, 0.719);
+}
+.dark#inventori main aside .contents ul li:hover {
+  color: whitesmoke;
+  background-color: rgba(125, 177, 255, 0.76);
+  box-shadow: 5px 5px 5px #66b2ff;
+}
+.dark#inventori main aside .contents ul li:hover::before {
+  background-color: rgb(0, 0, 0);
+}
+.dark#inventori .container {
+  box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.06);
+}
+.dark#inventori .container form .search-input input {
+  background-color: rgba(219, 214, 205, 0.753);
+  outline: unset;
+}
+.dark#inventori .container form .search-input button {
+  background-color: gray;
+}
+.dark#inventori .container #res-container div {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.06);
+}
+.dark#inventori .container #res-container div#container-pemasukkan {
+  background-color: rgba(65, 255, 65, 0.301);
+}
+.dark#inventori .container #res-container div#container-pengeluaran {
+  background-color: rgba(231, 63, 63, 0.24);
+}
+.dark#inventori .container #res-container div table {
+  background-color: rgba(88, 88, 88, 0.123);
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.06);
+}
+.dark#inventori .container #res-container div table thead {
+  background-color: rgba(18, 18, 18, 0.8235294118);
+  color: white;
+}
+.dark#inventori .container #res-container div table tbody tr {
+  background-color: rgba(22, 78, 102, 0.3019607843);
+  transition: background 0.5s ease;
+}
+.dark#inventori .container #res-container div table tbody tr:nth-child(even) {
+  background-color: rgba(107, 107, 107, 0.397);
+}
+.dark#inventori .container #res-container div table tbody tr:hover {
+  background-color: rgba(110, 25, 25, 0.356);
+}
+.dark#inventori .container #res-container div table tbody tr td {
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+}
+.dark#inventori table thead, .dark#histori table thead, .dark#dashboard table thead {
+  background-color: rgba(18, 18, 18, 0.8235294118);
+  color: #ddd;
+}
+.dark#inventori table tbody tr, .dark#histori table tbody tr, .dark#dashboard table tbody tr {
+  background-color: rgba(57, 36, 77, 0.397);
+}
+.dark#inventori table tbody tr:nth-child(even), .dark#histori table tbody tr:nth-child(even), .dark#dashboard table tbody tr:nth-child(even) {
+  background-color: rgba(22, 22, 22, 0.397);
+}
+.dark#inventori table tbody tr:hover, .dark#histori table tbody tr:hover, .dark#dashboard table tbody tr:hover {
+  background-color: rgba(110, 25, 25, 0.356);
+}
+.dark#inventori table tbody tr td, .dark#histori table tbody tr td, .dark#dashboard table tbody tr td {
+  color: #ddd;
+}
+.dark#histori main .heading {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.06);
+}
+.dark#histori main #result table {
+  box-shadow: unset;
+}
+.dark#histori #filter-container #filter-form input, .dark#histori #filter-container #filter-form select, .dark#histori #filter-container #filter-form button {
+  background-color: #009be0;
+  color: white;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+.dark#histori #filter-container #filter-form input:hover, .dark#histori #filter-container #filter-form select:hover, .dark#histori #filter-container #filter-form button:hover {
+  cursor: pointer;
+  background-color: unset;
+  color: #009be0;
+  border-color: #009be0;
+}
+.dark#histori #filter-container .btn-container #filter-btn {
+  color: white;
+  background-color: rgba(39, 39, 39, 0.404);
+  box-shadow: 0 0 1em rgba(255, 255, 255, 0.06);
+}
+.dark#dashboard main .dashboard-container {
+  background-color: transparent;
+  margin-top: 1vw;
+  text-shadow: 0 0 0.8em #aa2cff;
+}
+.dark#dashboard main .dashboard-container .container-card .card {
+  padding: 3%;
+  transition: ease 0.3s;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.336);
+}
+.dark#dashboard main .dashboard-container .container-card .card:hover {
+  box-shadow: 0 0 10px #aa2cff;
+  scale: 1.1;
+  transform: translateY(-10px);
+}
+.dark#dashboard main .dashboard-container > div, .dark#dashboard main .dashboard-container .tot-container > div {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
+  border-bottom: 5px solid #aa2cff;
+  padding: 4%;
+}
+.dark#dashboard main .dashboard-container > div:first-child, .dark#dashboard main .dashboard-container .tot-container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+.dark#dashboard main .dashboard-container > div:first-child .usr-income, .dark#dashboard main .dashboard-container .tot-container > div:first-child .usr-income {
+  transition: ease 0.5s;
+}
+.dark#dashboard main .dashboard-container > div:first-child .usr-income h1, .dark#dashboard main .dashboard-container .tot-container > div:first-child .usr-income h1 {
+  animation: terDup 1.5s infinite alternate;
+  color: rebeccapurple;
+}
+.dark#dashboard main .barang #container-barang {
+  background-color: rgba(18, 18, 18, 0.8235294118);
+  padding: 3%;
+  border-radius: 10px;
+}
+.dark#dashboard main .barang #container-barang > .card {
+  background-color: #1a1a1a;
+  transition: ease 0.2s;
+}
+.dark#dashboard main .barang #container-barang > .card:hover {
+  box-shadow: 0 0 0.5em #aa2cff;
+  scale: 1.1;
+  transform: translateY(-10px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Montserrat;
+  scroll-behavior: smooth;
+}
+
+input, button, select {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.current::after {
+  transition: ease-in-out 0.5s;
+  transform: scaleX(1);
+}
+
+.empty {
+  border-bottom-color: rgb(255, 0, 0) !important;
+}
+.empty::placeholder {
+  font-style: italic;
+  color: red !important;
+}
+
+.hideY {
+  transform-origin: center;
+  transform: scaleY(0);
+  pointer-events: none;
+}
+
+.hideX {
+  transform-origin: right;
+  transform: scaleX(0) !important;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.ical {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: inset;
+}
+
+body {
+  font-size: clamp(14px, 1.2vw, 16px);
+}
+body .nav-mbl {
+  display: none;
+}
+body header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5vh 2%;
+  box-shadow: 0 0 0.5em;
+  z-index: 10;
+}
+body header > a h1 {
+  font-family: Yellowtail;
+  font-style: italic;
+}
+body header > a h1 span {
+  font-family: inherit;
+}
+body header nav {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body header nav > a {
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
+  transition: ease-in-out 0.3s;
+  border-radius: 3px;
+  position: relative;
+}
+body header nav > a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: ease-in-out 0.3s;
+}
+body header nav > a:not(.current):hover::after {
+  transform: scaleX(1);
+}
+body header nav .settings {
+  cursor: pointer;
+  transition: ease 0.3s;
+  padding: 3px;
+  border-radius: 50%;
+  position: relative;
+}
+body header nav .settings > span {
+  border-radius: 50%;
+  padding: 0.5vw;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header nav .settings > ul {
+  top: 110%;
+  right: 30%;
+  position: absolute;
+  background-color: rgba(238, 238, 238, 0.9607843137);
+  padding: 1vh 1vw;
+  width: 25vw;
+  list-style: none;
+  border-radius: 8px;
+  cursor: auto;
+  transition: all ease 0.1s;
+  transform-origin: right;
+  transform: scaleX(1);
+  opacity: 1;
+}
+body header nav .settings > ul li {
+  margin: 1vh 0;
+  padding: 5% 10% 5% 5%;
+  border-radius: 3px;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  pointer-events: all;
+}
+body header nav .settings > ul li:hover {
+  background-color: rgba(185, 185, 185, 0.829);
+}
+body header > span:last-child {
+  display: none;
+}
+body footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+body footer a {
+  color: #aaa;
+  text-decoration: none;
+  transition: ease 0.3s;
+}
+body footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+body footer h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+}
+body footer ul {
+  list-style: none;
+  padding: 0;
+}
+body footer ul li {
+  margin-bottom: 0.5rem;
+}
+body footer .footer-about {
+  line-height: 1.6;
+}
+body footer .footer-about p {
+  color: #f2f7fc;
+}
+body footer .footer-bottom {
+  grid-column: 1/-1;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#index header {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  left: 0;
+}
+#index header nav {
+  width: 30%;
+}
+#index .hero {
+  background-image: url(https://c1.wallpaperflare.com/path/277/87/600/night-light-hall-factory-5b2af76908d25d251e8750b3ef5003e2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#index .hero .content-container {
+  z-index: 10;
+  height: 60%;
+  width: 70%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 5vh;
+}
+#index .hero .content-container h1 {
+  font-size: 200%;
+  position: relative;
+  padding: 1%;
+  transition: all 1s ease-in-out;
+  animation: fadeInUp 0.8s ease;
+}
+@keyframes goUp {
+  from {
+    height: 0;
+  }
+  to {
+    height: 120%;
+  }
+}
+@keyframes reveal {
+  from {
+    height: 120%;
+  }
+  to {
+    height: 5px;
+  }
+}
+@keyframes upUp {
+  from {
+    height: 5px;
+  }
+  to {
+    height: 10px;
+  }
+}
+#index .hero .content-container h1::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  width: 5px;
+  height: 120%;
+  animation: goUp 1s ease-in-out;
+}
+#index .hero .content-container h1::before {
+  content: "";
+  position: absolute;
+  left: -5%;
+  bottom: -15%;
+  width: 110%;
+  height: 5px;
+  animation: reveal 1s ease-in-out, upUp ease-in-out infinite;
+}
+#index .hero .content-container h1 span {
+  font-size: 150%;
+}
+#index .hero::before {
+  backdrop-filter: blur(1px);
+  height: 100%;
+  z-index: 0;
+}
+#index .hero::after {
+  height: 10%;
+  bottom: 0;
+}
+#index .hero::after, #index .hero::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+}
+#index main {
+  display: grid;
+  grid-template-rows: 40vh auto;
+  padding: 1%;
+  gap: 5% 0;
+  margin-bottom: clamp(5em, 15%, 8em);
+}
+#index main .intro {
+  border-radius: 10px;
+  padding: clamp(3em, 1vw, 5em);
+}
+#index main .intro .contents {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10% 0;
+}
+#index main .intro .contents a {
+  padding: 1% 2%;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.5s ease;
+}
+#index main section.container {
+  padding: 1%;
+  text-align: center;
+  border-radius: 5px;
+}
+#index main section.container h2 {
+  margin: 3vh 0;
+}
+#index main section.container .fitur-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1%;
+}
+#index main section.container .fitur-container .fitur-card {
+  text-align: left;
+  padding: 10%;
+  height: 100%;
+  box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.137);
+  border-radius: 5px;
+}
+#index main section.container .fitur-container .fitur-card h4 {
+  margin-bottom: 3vh;
+}
+
+#transaksi form input,
+#transaksi form select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+#transaksi .form-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+#transaksi .form-filter .filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#transaksi .form-filter .filter div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#transaksi .form-filter .filter div input,
+#transaksi .form-filter .filter div select {
+  width: 10rem;
+}
+#transaksi .form-transaksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#transaksi .form-transaksi .detail-barang,
+#transaksi .form-transaksi .detail-harga {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+#transaksi .form-transaksi .btns {
+  margin-top: 3vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+#transaksi .form-transaksi .btns button {
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#transaksi main section {
+  width: 75%;
+  padding: 2rem;
+  margin: 4rem auto;
+  border-radius: 12px;
+  animation: fadeInUp 0.6s ease;
+}
+
+#inventori main {
+  font-size: 80%;
+  padding: 1%;
+  margin-top: 3vh;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 12% auto;
+  gap: 0 1%;
+  margin-bottom: 3vh;
+}
+#inventori main aside {
+  padding: 1vh 0;
+}
+#inventori main aside > p {
+  display: none;
+}
+#inventori main aside .contents {
+  padding: 1% 6%;
+  height: fit-content;
+  position: sticky;
+  top: 15vh;
+}
+#inventori main aside .contents ul {
+  list-style: none;
+}
+#inventori main aside .contents ul li {
+  position: relative;
+  padding: 10px 0 10px 10px;
+  margin-top: 1em;
+  text-indent: 1%;
+  transition: ease 0.3s;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#inventori main aside .contents ul li::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 3%;
+  left: 0;
+  top: 0;
+}
+#inventori main aside .contents ul li:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+#inventori main .container {
+  animation: fadeInUp 0.8s ease;
+  border-top: 10px solid;
+  border-radius: 5px;
+}
+#inventori main .container form > h1 {
+  margin-top: 2%;
+  text-align: center;
+}
+#inventori main .container form .search-input {
+  margin: 2% auto 2% auto;
+  width: 30%;
+  position: relative;
+  transition: ease 0.3s;
+}
+#inventori main .container form .search-input input {
+  transition: scale 0.5s linear;
+  width: 100%;
+  outline: unset;
+}
+#inventori main .container form .search-input input, #inventori main .container form .search-input button {
+  font-size: clamp(1.3vw, 1.5vw, 12px);
+  border: none;
+  padding: 3% 3%;
+  border-radius: 3px;
+}
+#inventori main .container form .search-input button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  font-weight: 600;
+}
+#inventori main .container form .search-input:hover {
+  scale: 1.1;
+}
+#inventori main .container hr {
+  width: 60%;
+  margin: 1vh auto;
+  border-radius: 50%;
+}
+#inventori main .container #res-container {
+  padding: 2%;
+}
+#inventori main .container #res-container h2 {
+  margin: 0 0 2% 5%;
+}
+#inventori main .container #res-container div {
+  overflow: scroll;
+  margin-bottom: 7%;
+  padding: 3% 0;
+  border-radius: 10px;
+}
+
+#inventori table, #histori table, #dashboard table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: center;
+  width: 80%;
+  white-space: nowrap;
+}
+#inventori table thead th, #histori table thead th, #dashboard table thead th {
+  padding: 1%;
+}
+#inventori table tbody tr, #histori table tbody tr, #dashboard table tbody tr {
+  transition: background 0.5s ease;
+}
+#inventori table tbody tr td, #histori table tbody tr td, #dashboard table tbody tr td {
+  padding: 0.2%;
+}
+
+#histori main {
+  margin-top: 3vh;
+  padding: 1%;
+  height: 100vh;
+  overflow: scroll;
+}
+#histori main .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5vw;
+  padding: 5% 2%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#histori main .heading h2 {
+  width: 100%;
+  text-align: center;
+}
+#histori main #result {
+  overflow-x: auto;
+}
+#histori main #result table {
+  font-size: clamp(10px, 1vw, 14px);
+  margin: 0;
+  width: 100%;
+}
+#histori main #result table tbody td:not(:first-child) {
+  text-wrap: wrap;
+  padding: clamp(12px, 1.5vw, 14px);
+}
+#histori #filter-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+#histori #filter-container #filter-form label {
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+#histori #filter-container #filter-form input, #histori #filter-container #filter-form select, #histori #filter-container #filter-form button {
+  z-index: 10;
+  padding: clamp(5px, 0.7vw, 10px);
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #0077aa;
+}
+#histori #filter-container #filter-form label.hide {
+  position: absolute;
+  transform: translateX(0);
+  opacity: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+}
+#histori #filter-container #filter-btn {
+  background: #0077aa;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  padding: 2vh 3vw;
+  border-radius: 10px;
+  z-index: 20;
+  font-weight: 600;
+}
+
+#log-reg header {
+  position: fixed;
+  width: 100%;
+}
+#log-reg #log-reg-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#log-reg #log-reg-container .container {
+  animation: fadeInUp 0.9s;
+  border-radius: 55px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#log-reg #log-reg-container .container .form-container:first-child {
+  border-radius: 20px 0 0 20px;
+}
+#log-reg #log-reg-container .container .form-container {
+  border-radius: 0 20px 20px 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#log-reg #log-reg-container .container .form-container form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+#log-reg #log-reg-container .container .form-container form h1 {
+  margin-bottom: 3vh;
+}
+#log-reg #log-reg-container .container .form-container form input {
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  width: 100%;
+}
+#log-reg #log-reg-container .container .form-container form button {
+  font-weight: bold;
+  margin-top: 3vh;
+  padding: 8px 20px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+#log-reg #log-reg-container .container .form-container #daftar {
+  animation: goToRight 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #log {
+  animation: goToLeft 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #daftar.act {
+  animation: slideToLeft 0.9s;
+}
+#log-reg #log-reg-container .container .form-container #log.act {
+  animation: slideToRight 0.9s;
+}
+#log-reg #log-reg-container .container .panel {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateX(0);
+  border-radius: 150px 0 0 150px;
+  transition: all 0.8s ease-out;
+}
+#log-reg #log-reg-container .container .panel > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.8s ease-in-out;
+  gap: 1vh 0;
+  position: absolute;
+  text-align: center;
+}
+#log-reg #log-reg-container .container .panel > div p {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+#log-reg #log-reg-container .container .panel.act {
+  transform: translateX(-100%);
+  border-radius: 0 150px 150px 0;
+}
+#log-reg #log-reg-container .container .panel.act div:first-child {
+  opacity: 0;
+}
+#log-reg #log-reg-container .container .panel.act div:nth-child(2) {
+  opacity: 1;
+}
+#log-reg #log-reg-container .container .panel button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 1vh;
+  cursor: pointer;
+  font-weight: bold;
+}
+#log-reg #log-reg-container .container .panel div:nth-child(2) {
+  opacity: 0;
+}
+
+#dashboard main {
+  gap: 3rem;
+  padding: 2rem;
+}
+#dashboard main section {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+#dashboard main .dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(fit-content, 1fr));
+  grid-template-rows: 1fr auto;
+  gap: 1vw;
+  font-weight: 500;
+}
+#dashboard main .dashboard-container img {
+  width: 100%;
+}
+#dashboard main .dashboard-container p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.5rem 0 0;
+}
+#dashboard main .dashboard-container > .card {
+  grid-row: 1;
+  border-radius: 10px;
+  text-align: center;
+}
+#dashboard main .dashboard-container .tot-container {
+  grid-row: 2;
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+  border-radius: 10px;
+  gap: 1vw;
+}
+#dashboard main .dashboard-container .tot-container > .tot {
+  flex: 1;
+  font-size: clamp(8px, 1.1vw, 14px);
+  border-radius: 10px;
+  text-align: center;
+  border-bottom: none !important;
+}
+#dashboard main .dashboard-container .tot-container > .tot h2 {
+  color: #111;
+}
+#dashboard main .dashboard-container .tot-container > .tot p {
+  font-size: 1rem;
+}
+#dashboard main .dashboard-container .container-card {
+  grid-row: 1;
+  border-radius: 10px;
+  display: grid;
+  padding: 2%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3%;
+}
+#dashboard main .dashboard-container .container-card > .card {
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8vw;
+}
+#dashboard main .dashboard-container > .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+#dashboard main .dashboard-container > .card > div {
+  background-color: rgba(0, 0, 0, 0.322);
+  border-radius: 10px;
+  padding: 1%;
+  width: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#dashboard main .recent {
+  margin-top: 3vw;
+}
+#dashboard main .recent #container-aktivitas {
+  overflow-x: scroll;
+  width: 100%;
+  margin-top: 1vw;
+}
+#dashboard main .recent #container-aktivitas table {
+  font-size: clamp(10px, 1vw, 14px);
+}
+#dashboard main .recent #container-aktivitas table td:not(:first-child), #dashboard main .recent #container-aktivitas table th {
+  text-wrap: wrap;
+  padding: clamp(8px, 1.5vw, 14px);
+}
+#dashboard main .barang h2 {
+  margin-bottom: 2vw;
+}
+#dashboard main .barang #container-barang {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1vw;
+}
+#dashboard main .barang #container-barang > .card {
+  padding: 7%;
+  border-radius: 5px;
+  text-align: center;
+  border-bottom: 0.6vw solid rebeccapurple;
+}
+#dashboard main .barang #container-barang > .card .stok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+}
+
+@media (max-width: 1030px) {
+  body.light nav {
+    background-color: #f2f7fc !important;
+  }
+  body.dark nav {
+    background-color: rgba(18, 18, 18, 0.8235294118) !important;
+  }
+  body header nav {
+    position: fixed;
+    justify-content: unset;
+    width: 50% !important;
+    height: 100%;
+    right: -100%;
+    top: 0;
+    flex-direction: column;
+    transition: ease 0.4s;
+    z-index: 100;
+  }
+  body header nav a {
+    padding: 1em 0.5em;
+    width: 100%;
+  }
+  body header nav a:not(.current):hover {
+    scale: 1 !important;
+  }
+  body header nav.active {
+    right: 0;
+  }
+  body header > span:last-child {
+    display: block;
+    position: absolute;
+    right: 3%;
+    cursor: pointer;
+  }
+  body header > span:last-child img {
+    pointer-events: none;
+  }
+  body#transaksi main section {
+    width: 95%;
+  }
+  body#transaksi .form-filter {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  body#transaksi .form-filter .filter {
+    flex-direction: column;
+    width: 100%;
+  }
+  body#transaksi .form-filter .filter div {
+    width: 100%;
+    justify-content: space-between;
+  }
+  body#transaksi .form-filter .filter div input,
+  body#transaksi .form-filter .filter div select {
+    width: 60%;
+    font-size: 12px;
+  }
+  body#transaksi .form-transaksi {
+    flex-direction: column;
+  }
+  body#transaksi .form-transaksi > div {
+    width: 100%;
+  }
+}
+@media (max-width: 860px) {
+  html body {
+    font-size: clamp(13px, 5vw, 14px);
+  }
+  html body img {
+    width: 70% !important;
+    height: 70% !important;
+  }
+  html body#inventori main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% auto;
+    gap: 1% 0;
+  }
+  html body#inventori main aside .contents {
+    padding: 1%;
+    height: 100%;
+  }
+  html body#inventori main aside .contents h2 {
+    display: none;
+  }
+  html body#inventori main aside .contents ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  html body#inventori main aside .contents ul li {
+    margin: 0;
+    width: 20%;
+  }
+  html body#inventori main aside .contents ul a {
+    width: 20%;
+  }
+  html body#inventori main aside .contents ul a li {
+    width: 100%;
+  }
+}
+@media (max-width: 585px) {
+  body {
+    font-size: clamp(8px, 2.1vw, 12px) !important;
+  }
+  body#transaksi form p {
+    font-size: 14px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarAs - Inventori</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body id="inventori" class="light">
+    <header class="light">
+        <a href="/index.html"><h1>War<span>As</span></h1></a>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#">Inventori</a>
+            <a href="transaksi.html">Transaksi</a>
+            <a href="histori.html">Histori</a>
+            <div class="settings">
+                <span class="material-symbols-rounded" id="sett-btn">settings</span>
+                <ul class="hideX" id="setting-contents">
+                    <li>Keluar</li>
+                    <li>Ganti tema</li>
+                </ul>
+            </div>
+        </nav>
+        <span class="nav-tab"><img src="../assets/Hamburger.svg" alt=""></span>
+    </header>
+
+    <main>
+        <aside class="container light">
+            <div class="contents">
+                <h2>Navbar</h2> 
+                <ul>
+                    <a href="#top"><li>Pencarian</li></a>
+                    <li>Semua</li>
+                    <li>Data barang</li>
+                    <li>Data Transaksi</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="container light">
+            <form id="search">
+                <h1>Inventori barang</h1>
+                <div class="search-input hideY">
+                    <input type="text" placeholder="Cari disini"> <button>Search</button>
+                </div>
+                <hr>
+            </form>
+    
+            <div id="res-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-about">
+            <h4>Tentang WarAs</h4>
+            <p>WarAs adalah platform pengelolaan inventori dan transaksi harian untuk UMKM dan usaha rumahan. Mudah, ringan, dan fleksibel.</p>
+        </div>
+        <div>
+            <h4>Menu Cepat</h4>
+            <ul>
+                <li><a href="/Public/pages/dashboard.html">Dashboard</a></li>
+                <li><a href="/Public/pages/histori.html">Inventori</a></li>
+                <li><a href="/Public/pages/transaksi.html">Transaksi</a></li>
+                <li><a href="/Public/pages/histori.html">Histori</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Bantuan</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Panduan Pengguna</a></li>
+                <li><a href="#">Hubungi Kami</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="https://github.com/RascaL023" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 WarAs. Semua hak cipta dilindungi.
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

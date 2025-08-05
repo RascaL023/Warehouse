@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body id="dashboard" class="light">
+    <header class="light">
+        <a href="/index.html"><h1>War<span>As</span></h1></a>
+        <nav>
+            <a href="#">Dashboard</a> 
+            <a href="inventori.html">Inventori</a>
+            <a href="transaksi.html">Transaksi</a>
+            <a href="histori.html">Histori</a>
+            <div class="settings">
+                <span class="material-symbols-rounded" id="sett-btn">settings</span>
+                <ul class="hideX" id="setting-contents">
+                    <li>Keluar</li>
+                    <li>Ganti tema</li>
+                </ul>
+            </div>
+        </nav>
+        <span class="nav-tab"><img src="../assets/Hamburger.svg" alt=""></span>
+    </header>
+
+    <main class="container">
+        <h2>Ringkasan barang</h2>
+        <section class="dashboard-container container">
+            <div class="card">
+                <h2>
+                    Pendapatan kotor
+                    <span id="usr"></span>
+                </h2>
+                <div class="usr-income">
+                    <h1>-</h1>
+                </div>
+            </div>
+            <div class="container-card">
+                <div class="card">Total barang<p id="total-barang">-</p></div>
+                <div class="card">Stok aktif<p id="stok-aktif">-</p></div>
+                <div class="card">Transaksi hari ini<p id="transaksi-today">-</p></div>
+            </div>
+            <div class="tot-container">
+                <div class="tot">
+                    <h2>Total pemasukkan</h2>
+                    <p id="income">-</p>
+                </div>
+                <div class="tot">
+                    <h2>Total pengeluaran</h2>
+                    <p id="loss">-</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="barang container">
+            <h2>Daftar barang</h2>
+            <div id="container-barang"></div>
+        </section>
+
+        <section class="recent container">
+            <h2>Transaksi hari ini</h2>
+            <div id="container-aktivitas"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-about">
+            <h4>Tentang WarAs</h4>
+            <p>WarAs adalah platform pengelolaan inventori dan transaksi harian untuk UMKM dan usaha rumahan. Mudah, ringan, dan fleksibel.</p>
+        </div>
+        <div>
+            <h4>Menu Cepat</h4>
+            <ul>
+                <li><a href="/Public/pages/dashboard.html">Dashboard</a></li>
+                <li><a href="/Public/pages/histori.html">Inventori</a></li>
+                <li><a href="/Public/pages/transaksi.html">Transaksi</a></li>
+                <li><a href="/Public/pages/histori.html">Histori</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Bantuan</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Panduan Pengguna</a></li>
+                <li><a href="#">Hubungi Kami</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="https://github.com/RascaL023" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 WarAs. Semua hak cipta dilindungi.
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
